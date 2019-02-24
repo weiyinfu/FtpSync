@@ -1,0 +1,20 @@
+{
+  "host": "xxx.cn",
+  "port": 22,
+  "username": "ubuntu",
+  "password": "",
+  "upload": [
+    "*"
+  ],
+  "noUpload": [
+    "*.iml",
+    "./vscode",
+    ".idea/"
+  ],
+  "download": [
+  ],
+  "noDownload": [],
+  "lazy": "true",
+  "localBase": ".",
+  "remoteBase": "/home/ubuntu/test"
+}
