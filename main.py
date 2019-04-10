@@ -46,8 +46,14 @@ class Ftp:
             self.transport.connect(username=username, password=password)
         else:  # 没有提供密码，使用家目录下的SSH进行登录
             userHome = os.path.expanduser("~")
-            private_key = paramiko.RSAKey.from_private_key_file(join(userHome, '.ssh/id_rsa'))
-            self.transport.connect(username=username, pkey=private_key)
+            id_rsa_path = join(userHome, '.ssh/id_rsa')
+            print("no password ,will use SSH to login. id_rsa_path", id_rsa_path)
+            private_key = paramiko.RSAKey.from_private_key_file(id_rsa_path)
+            try:
+                self.transport.connect(username=username, pkey=private_key)
+            except:
+                traceback.print_stack()
+                print("connect failed")
         # sftp和ssh可以共用transport
         self.sftp = paramiko.SFTPClient.from_transport(self.transport)
         self.ssh = paramiko.SSHClient()

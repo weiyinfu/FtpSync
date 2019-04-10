@@ -1,7 +1,7 @@
 {
-  "host": "xxx.cn",
+  "host": "xxxxx",
   "port": 22,
-  "username": "ubuntu",
+  "username": "xxxxx",
   "password": "",
   "upload": [
     "*"
